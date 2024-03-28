@@ -47,7 +47,8 @@ for query_year in query_years:
 
     start_time = datetime.datetime.now()
     timeout = 25
-    while not os.path.isfile(filename_template.format(query_year)):
+    zip_file_path = os.path.join(download_path, filename_template.format(query_year)) # modifying path from current wd
+    while not os.path.isfile(zip_file_path):
         print(
             "Waiting for " + \
             filename_template.format(query_year) + \
@@ -57,8 +58,8 @@ for query_year in query_years:
         if (datetime.datetime.now() - start_time).seconds > timeout:
             break
 
-    with zipfile.ZipFile(filename_template.format(query_year), 'r') as zip_ref:
-        zip_ref.extractall(os.getcwd())
+    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+        zip_ref.extractall(download_path)
 
 driver.quit()
 

@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1jvSkVS5edrFXR7nb1I-WMDj3i7o5DzA0
 """
 
-#pip install refinitiv.data
+# pip install refinitiv.data
 
 import pandas as pd
 import refinitiv.data as rd
